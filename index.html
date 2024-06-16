@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Modos Claro y Oscuro</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body.light-mode {
+            background-color: #f8f9fa;
+            color: #000000;
+        }
+        body.dark-mode {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+        .navbar.light-mode {
+            background-color: #f8f9fa;
+        }
+        .navbar.dark-mode {
+            background-color: #343a40;
+        }
+        .navbar-light .navbar-brand {
+            color: #000000; 
+        }
+        .navbar-dark .navbar-brand {
+            color: #ffffff; 
+        }
+        .table.light-mode th, .table.light-mode td {
+            color: #000000;
+        }
+        .table.dark-mode th, .table.dark-mode td {
+            color: #ffffff;
+            background-color: #343a40; 
+        }
+        .btn-dark-mode {
+            color: #ffffff;
+        }
+        .btn-light-mode {
+            color: #000000;
+        }
+        .btn-same-width {
+            width: 150px; 
+        }
+    </style>
+</head>
+<body class="light-mode">
+
+
+<nav class="navbar navbar-expand-lg navbar-light light-mode">
+    <div class="container d-flex justify-content-center">
+        <a class="navbar-brand" href="#">Ventas 2024 1Q</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <button id="modoClaro" class="btn btn-primary btn-same-width mr-2">Modo Claro</button>
+                </li>
+                <li class="nav-item">
+                    <button id="modoOscuro" class="btn btn-secondary btn-same-width">Modo Oscuro</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container my-5">
+    <h1 id="titulo">Título de la Página</h1>
+    <img id="imagen" src="https://res.cloudinary.com/dgvlsnajj/image/upload/v1718501696/fotofinanzas_xhgpd3.jpg" class="img-fluid my-4" alt="Imagen de ejemplo">
+    <table class="table table-bordered light-mode">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">ID Producto#</th>
+                <th scope="col">Ventas  Enero</th>
+                <th scope="col">Ventas Febrero</th>
+                <th scope="col">Ventas Marzo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>5000$</td>
+                <td>9000$</td>
+                <td>12000$</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>14000$</td>
+                <td>22500$</td>
+                <td>27000$</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>14000$</td>
+                <td>3500$</td>
+                <td>5500$</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#modoClaro').click(function(){
+            $('body').removeClass('dark-mode').addClass('light-mode');
+            $('.navbar').removeClass('dark-mode').addClass('light-mode');
+            $('.table').removeClass('dark-mode').addClass('light-mode');
+            $('.btn').removeClass('btn-dark-mode').addClass('btn-light-mode');
+            $('.navbar-brand').removeClass('text-white').addClass('text-dark'); 
+        });
+        $('#modoOscuro').click(function(){
+            $('body').removeClass('light-mode').addClass('dark-mode');
+            $('.navbar').removeClass('light-mode').addClass('dark-mode');
+            $('.table').removeClass('light-mode').addClass('dark-mode');
+            $('.btn').removeClass('btn-light-mode').addClass('btn-dark-mode');
+            $('.navbar-brand').removeClass('text-dark').addClass('text-white'); 
+        });
+    });
+</script>
+</body>
+</html>
